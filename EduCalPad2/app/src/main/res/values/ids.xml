@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="notepad" type="id" />
+    <item name="calculator" type="id" />
+    <item name="news" type="id" />
+    <item name="search" type="id" />
+    <item name="newsIcon" type="id" />
+    <item name="notepadButton" type="id" />
+    <item name="homeButton" type="id" />
+    <item name="calculatorButton" type="id" />
+</resources>

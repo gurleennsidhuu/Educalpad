@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="730dp"
+    tools:context=".Notepad">
+
+
+
+    <!--edit text takes inputs from the user and it can be multiline input
+    it is constraint at the top of screen and a Hint is written "Enter your name" and margin and text size are defined-->
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/addButton"
+        android:hint="@string/enter_yout_note_here"
+        android:layout_margin="16dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:textSize="16sp"/>
+
+    <!--submit button is added at the bottom of input and onclick it submits the data
+    written in input which is passed to the database-->
+    <Button
+        android:id="@+id/addButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/input"
+        android:layout_margin="16dp"
+        android:text="@string/submit"
+        android:onClick="submitData"
+        android:background="@color/teal_700"
+        android:textColor="@color/white"/>
+
+    <!--RecyclerView is implemented here and constraint at bottom of submit button-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView1"
+        android:layout_width="match_parent"
+        android:layout_height="490dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addButton"
+        tools:listitem="@layout/item_note" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        app:layout_constraintTop_toBottomOf="@id/recyclerView1"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal"
+        android:weightSum="5">
+
+        <ImageButton
+            android:id="@+id/searchButton"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="#aedbff"
+            android:onClick="openSearch"
+            android:src="@drawable/ic_search" />
+
+        <ImageButton
+            android:id="@+id/calculatorButton"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="#aedbff"
+            android:onClick="openCalculator"
+            android:src="@drawable/ic_calculator" />
+
+        <ImageButton
+            android:id="@+id/homeButton"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="#aedbff"
+            android:onClick="openMain"
+            android:src="@drawable/ic_home" />
+
+        <ImageButton
+            android:id="@+id/notepadButton"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_weight="1"
+            android:background="@color/teal_700"
+            android:src="@drawable/ic_notepad" />
+
+        <ImageButton
+            android:id="@+id/newsIcon"
+            android:layout_width="70dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="4dp"
+            android:layout_marginRight="4dp"
+            android:layout_weight="1"
+            android:background="#aedbff"
+            android:onClick="openNews"
+            android:src="@drawable/ic_baseline_tv_24" />
+
+    </LinearLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

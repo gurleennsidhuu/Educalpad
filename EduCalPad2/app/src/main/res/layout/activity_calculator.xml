@@ -1,0 +1,538 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="10"
+    tools:context=".MainActivity">
+    <!--//Layout for the calculator
+    //Layout of each text field and button has been defined
+    //Text color, text size, button's background have also been defined with every button
+    //It's location in the layout has also defined
+        //The text for displaying the final calculation
+        //upper screen-->
+    <TextView
+        android:id="@+id/tvSec"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#000"
+        android:text=""
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:layout_weight="1"
+        android:textAlignment="gravity"
+        android:gravity="end|bottom"/>
+    <!--   //to shift the text to bottom right-->
+    <!--    //The text for displaying the number pressed by the user-->
+    <!--    //the lower screen-->
+    <TextView
+        android:id="@+id/tvMain"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#000"
+        android:text=""
+        android:textColor="#fff"
+        android:textSize="40sp"
+        android:layout_weight="1"
+        android:textAlignment="gravity"
+        android:gravity="end|bottom"/>
+    <!--    //Layout for the number and operator buttons-->
+    <!--    //layout for each line, orientation is vertical-->
+    <!--    //each line will be placed one below the other-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="vertical">
+        <!--        //starting of the 1st line-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:baselineAligned="false"
+            tools:ignore="NestedWeights">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                tools:ignore="UselessParent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="4"
+                    android:orientation="horizontal">
+                    <!--                        //The code for clear button that clears the screen-->
+                    <Button
+                        android:id="@+id/AC"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/ac"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The coder for clear button that clears the last input-->
+                    <Button
+                        android:id="@+id/C"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/c"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the opening bracket-->
+                    <Button
+                        android:id="@+id/open"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/open"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the closing bracket-->
+                    <Button
+                        android:id="@+id/close"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/close"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--            //Starting of the 2nd line-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                tools:ignore="UselessParent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="5"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+                    <!--                        //The code for the sin function button-->
+                    <Button
+                        android:id="@+id/sine"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/sin"
+                        android:textAllCaps="false"
+                        android:background="#000"
+                        android:textSize="26sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the cos function button-->
+                    <Button
+                        android:id="@+id/cos"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/cos"
+                        android:textAllCaps="false"
+                        android:background="#000"
+                        android:textSize="26sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the tan function button-->
+                    <Button
+                        android:id="@+id/tan"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/tan"
+                        android:textAllCaps="false"
+                        android:background="#000"
+                        android:textSize="26sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the log function button-->
+                    <Button
+                        android:id="@+id/log"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/log"
+                        android:textAllCaps="false"
+                        android:background="#000"
+                        android:textSize="26sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the ln function button-->
+                    <Button
+                        android:id="@+id/ln"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/ln"
+                        android:textAllCaps="false"
+                        android:background="#000"
+                        android:textSize="26sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--            //Staring of the 3rd line-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                tools:ignore="UselessParent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="5"
+                    android:orientation="horizontal">
+                    <!--                        //The code for the factorial button-->
+                    <Button
+                        android:id="@+id/factorial"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/fact"
+                        android:textAllCaps="false"
+                        android:background="#000"
+                        android:textSize="28sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the square button-->
+                    <Button
+                        android:id="@+id/square"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/square"
+                        android:textAllCaps="false"
+                        android:background="#000"
+                        android:textSize="28sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the square root button-->
+                    <Button
+                        android:id="@+id/root"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/root"
+                        android:background="#000"
+                        android:textSize="28sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the reciprocal button-->
+                    <Button
+                        android:id="@+id/reciprocal"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_1_x"
+                        android:textAllCaps="false"
+                        android:background="#000"
+                        android:textSize="28sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the divide button-->
+                    <Button
+                        android:id="@+id/divide"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/divide"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--            //Staring of the 4th line-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                tools:ignore="UselessParent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="4"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+                    <!--                        //The code for the number 7 button-->
+                    <Button
+                        android:id="@+id/seven"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_7"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the number 8 button-->
+                    <Button
+                        android:id="@+id/eight"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_8"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the number 9 button-->
+                    <Button
+                        android:id="@+id/nine"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_9"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the multiplication button-->
+                    <Button
+                        android:id="@+id/multiply"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/multiply"
+                        android:background="#000"
+                        android:textSize="32sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--           //Staring of the 5th line-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                tools:ignore="UselessParent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="4"
+                    android:orientation="horizontal">
+                    <!--                        //The code for the number 4 button-->
+                    <Button
+                        android:id="@+id/four"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_4"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the number 5 button-->
+                    <Button
+                        android:id="@+id/five"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_5"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the number 6 button-->
+                    <Button
+                        android:id="@+id/six"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_6"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code the subtract button-->
+                    <Button
+                        android:id="@+id/subtract"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/minus"
+                        android:background="#000"
+                        android:textSize="40sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--            //Staring of the 6th line-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                tools:ignore="UselessParent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="4"
+                    android:orientation="horizontal">
+                    <!--                        //The code for the number 1 button-->
+                    <Button
+                        android:id="@+id/one"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_1"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the number 2 button-->
+                    <Button
+                        android:id="@+id/two"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_2"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the number 3 button-->
+                    <Button
+                        android:id="@+id/three"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_3"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the addition button-->
+                    <Button
+                        android:id="@+id/sum"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/plus"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+        <!--            //Staring of the 7th line-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_weight="1"
+                tools:ignore="UselessParent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:weightSum="4"
+                    android:orientation="horizontal"
+                    tools:ignore="UselessParent">
+                    <!--                        //The code for the pi button-->
+                    <Button
+                        android:id="@+id/pi"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/pi"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the number 0 button-->
+                    <Button
+                        android:id="@+id/zero"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/_0"
+                        android:background="#000"
+                        android:textSize="30sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for the point button (used for decimal numbers)-->
+                    <Button
+                        android:id="@+id/point"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/dot"
+                        android:background="#000"
+                        android:textSize="37sp"
+                        android:layout_weight="1"
+                        android:textColor="#fff"
+                        tools:ignore="ButtonStyle" />
+                    <!--                        //The code for equals to button (used for producing result)-->
+                    <Button
+                        android:id="@+id/equal"
+                        android:layout_height="match_parent"
+                        android:layout_width="match_parent"
+                        android:text="@string/equal"
+                        android:background="#000"
+                        android:textSize="34sp"
+                        android:layout_weight="1"
+                        android:textColor="#ffa500"
+                        tools:ignore="ButtonStyle" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
